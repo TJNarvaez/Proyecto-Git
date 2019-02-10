@@ -48,7 +48,32 @@ public class Matriz {
         return matrizResultante; 
     } 
 
-    @Override
+ public static Matriz multiplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
+        if(! a.getDimension().equals(b.getDimension())) throw new DimensionesIncompatibles("La multiplicación de matrices requiere matrices de las mismas dimensiones");        
+        int i, j, filasA, columnasA; 
+        filasA = a.getDimension().height; 
+        columnasA = a.getDimension().width; 
+        Matriz matrizResultante = new Matriz(filasA, columnasA, false);
+        for (j = 0; j < filasA; j++) { 
+            for (i = 0; i < columnasA; i++) { 
+                matrizResultante.datos[i][j] += a.datos[i][j] * b.datos[i][j]; 
+            } 
+        } 
+        return matrizResultante; }
+   
+public static Matriz InvertirDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
+        if(! a.getDimension().equals(b.getDimension())) throw new DimensionesIncompatibles("Invertir matrices requiere matrices de las mismas dimensiones");        
+        int i, j, filasA, columnasA; 
+        filasA = a.getDimension().height; 
+        columnasA = a.getDimension().width; 
+        Matriz matrizResultante = new Matriz(filasA, columnasA, false);
+        for (j = 0; j < filasA; j++) { 
+            for (i = 0; i < columnasA; i++) { 
+                matrizResultante.datos[i][j] += a.datos[i][j] * b.datos[i][j]; 
+            } 
+        } 
+        return matrizResultante; }
+ @Override
     public String toString(){
         String ret = "";
         ret += "[\n";
