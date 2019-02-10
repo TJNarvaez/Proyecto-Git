@@ -66,13 +66,13 @@ public static Matriz InvertirDosMatrices(Matriz a, Matriz b) throws DimensionesI
         int i, j, filasA, columnasA; 
         filasA = a.getDimension().height; 
         columnasA = a.getDimension().width; 
-        Matriz matrizResultante = new Matriz(filasA, columnasA, false);
+        Matriz matrizResultante3 = new Matriz(filasA, columnasA, false);
         for (j = 0; j < filasA; j++) { 
             for (i = 0; i < columnasA; i++) { 
-                matrizResultante.datos[i][j] += a.datos[i][j] * b.datos[i][j]; 
+                matrizResultante3.datos[i][j] += a.datos[i][j] * b.datos[i][j]; 
             } 
         } 
-        return matrizResultante; }
+        return matrizResultante3; }
  @Override
     public String toString(){
         String ret = "";
