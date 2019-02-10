@@ -33,7 +33,15 @@ public class Matriz {
     public Dimension getDimension(){
         return new Dimension(datos.length, datos[0].length);
     }
-    
+   
+    public void multiplicarMatriz(double n, Matriz a) {
+        int i, j, dimensionA;
+        dimensionA=a.getDimension().height;
+        for(i=0;i<dimensionA;i++)
+                for(j=0;j<dimensionA;j++)
+                        a.datos[i][j]*=n;
+    }
+
     public static Matriz sumarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
         if(! a.getDimension().equals(b.getDimension())) throw new DimensionesIncompatibles("La suma de matrices requiere matrices de las mismas dimensiones");        
         int i, j, filasA, columnasA; 
@@ -47,20 +55,7 @@ public class Matriz {
         } 
         return matrizResultante; 
     } 
-
-    public static Matriz muliplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
-        if(! a.getDimension().equals(b.getDimension())) throw new DimensionesIncompatibles("La multiplicación de matrices requiere matrices de las mismas dimensiones");        
-        int i, j, filasA, columnasA; 
-        filasA = a.getDimension().height; 
-        columnasA = a.getDimension().width; 
-        Matriz matrizResultante2 = new Matriz(filasA, columnasA, false);
-        for (j = 0; j < filasA; j++) { 
-            for (i = 0; i < columnasA; i++) { 
-                matrizResultante2.datos[i][j] += a.datos[i][j] * b.datos[i][j]; 
-            } 
-        } 
-        return matrizResultante2; 
-    }
+ 
     @Override
     public String toString(){
         String ret = "";
